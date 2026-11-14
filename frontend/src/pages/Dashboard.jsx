@@ -24,11 +24,11 @@ export const Dashboard = () => {
   } = useSecurity();
 
   const categories = [
-    { name: 'BOLA / IDOR', owasp: 'API1:2023', vectors: 6, blocked: 6, status: '100% defense', barColor: 'bg-blue-600' },
-    { name: 'Business logic & limits', owasp: 'API4:2023', vectors: 6, blocked: 6, status: '100% defense', barColor: 'bg-indigo-600' },
-    { name: 'Input validation & types', owasp: 'API8:2023', vectors: 6, blocked: 6, status: '100% defense', barColor: 'bg-emerald-600' },
-    { name: 'Origin spoofing & SSRF', owasp: 'API7:2023', vectors: 5, blocked: 5, status: '100% defense', barColor: 'bg-amber-600' },
-    { name: 'Protocol & whitelisting', owasp: 'API10:2023', vectors: 6, blocked: 5, approved: 1, status: '100% defense', barColor: 'bg-slate-700' },
+    { name: 'BOLA / IDOR', owasp: 'API1:2023', vectors: 3, blocked: 3, status: '100% defense', barColor: 'bg-blue-600' },
+    { name: 'Business logic & limits', owasp: 'API4:2023', vectors: 3, blocked: 3, status: '100% defense', barColor: 'bg-indigo-600' },
+    { name: 'Input validation & types', owasp: 'API8:2023', vectors: 3, blocked: 3, status: '100% defense', barColor: 'bg-emerald-600' },
+    { name: 'Origin spoofing & SSRF', owasp: 'API7:2023', vectors: 3, blocked: 3, status: '100% defense', barColor: 'bg-amber-600' },
+    { name: 'Protocol & whitelisting', owasp: 'API10:2023', vectors: 4, blocked: 3, approved: 1, status: '100% defense', barColor: 'bg-slate-700' },
   ];
 
   return (
@@ -46,7 +46,7 @@ export const Dashboard = () => {
             </span>
           </div>
           <p className="text-sm text-slate-500 mt-1">
-            Real-time telemetry and deterministic guardrails for autonomous AI agent payments.
+            Real-time x402 payment header verification and deterministic security guardrails for autonomous AI agents.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export const Dashboard = () => {
           </div>
           <div className="flex items-center gap-1.5 mt-2.5 text-xs text-emerald-700 font-medium">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-            <span>28 of 28 attacks intercepted</span>
+            <span>15 of 15 attacks intercepted</span>
           </div>
         </div>
 

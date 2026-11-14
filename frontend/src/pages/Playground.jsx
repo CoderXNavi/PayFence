@@ -102,7 +102,7 @@ export const Playground = () => {
           Interactive playground
         </h1>
         <p className="text-sm text-slate-500 mt-1">
-          Dispatch test payloads directly through the PayFence interceptor to observe real-time policy evaluation.
+          Real-time x402 payment header verification and deterministic security guardrails for autonomous AI agents.
         </p>
       </div>
 

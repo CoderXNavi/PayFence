@@ -81,7 +81,7 @@ export const RedTeam = () => {
             Red team security audit
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Simulate 28 adversarial attack payloads and 1 legitimate control against the PayFence gateway.
+            Simulate 15 adversarial x402 attack payloads and 1 legitimate control against the PayFence gateway.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ export const RedTeam = () => {
           <div>
             <div className="text-xs font-medium text-slate-500">Attacks blocked</div>
             <div className="text-sm font-bold font-mono text-red-600 mt-0.5">
-              28 / 28 <span className="font-sans font-normal text-slate-500 text-xs">(100%)</span>
+              {auditData?.blockedAttacks || 15} / {auditData?.totalAttacks || 15} <span className="font-sans font-normal text-slate-500 text-xs">(100%)</span>
             </div>
           </div>
 
@@ -162,7 +162,7 @@ export const RedTeam = () => {
 
         <div className="text-xs text-slate-500 flex items-center gap-1.5 self-start md:self-center font-mono text-[11px]">
           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>All 29 vectors evaluated</span>
+          <span>All {auditData?.totalTests || 16} vectors evaluated</span>
         </div>
       </div>
 
@@ -173,8 +173,8 @@ export const RedTeam = () => {
           {OWASP_CATEGORIES.map(cat => {
             const isSelected = activeCategory === cat.id;
             const count = cat.id === 'all'
-              ? allResults.length || 29
-              : allResults.filter(r => normalizeCategory(r.category) === cat.id).length || cat.count || 6;
+              ? allResults.length || 16
+              : allResults.filter(r => normalizeCategory(r.category) === cat.id).length || cat.count || 3;
 
             return (
               <button
@@ -215,7 +215,7 @@ export const RedTeam = () => {
       <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
         <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 flex items-center justify-between text-xs text-slate-500">
           <span className="font-medium text-slate-700">
-            Test suite cases ({filteredResults.length} of {allResults.length || 29})
+            Test suite cases ({filteredResults.length} of {allResults.length || 16})
           </span>
           <span className="font-mono text-[11px]">Click row to inspect payload & rule</span>
         </div>

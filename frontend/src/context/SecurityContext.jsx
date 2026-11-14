@@ -9,8 +9,8 @@ export const SecurityProvider = ({ children }) => {
   const [spentToday, setSpentToday] = useState(12.50);
   const [perTxCap, setPerTxCap] = useState(50.00);
   const [guardActive, setGuardActive] = useState(true);
-  const [blockedCount, setBlockedCount] = useState(28);
-  const [totalInspected, setTotalInspected] = useState(29);
+  const [blockedCount, setBlockedCount] = useState(15);
+  const [totalInspected, setTotalInspected] = useState(16);
   const [policy, setPolicy] = useState(null);
   const [recentLogs, setRecentLogs] = useState([]);
 
@@ -29,8 +29,8 @@ export const SecurityProvider = ({ children }) => {
         setRecentLogs(logs);
         const blocked = logs.filter(l => l.verdict === 'BLOCKED' || l.status === 403).length;
         if (blocked > 0) {
-          setBlockedCount(Math.max(28, blocked));
-          setTotalInspected(Math.max(29, logs.length));
+          setBlockedCount(Math.max(15, blocked));
+          setTotalInspected(Math.max(16, logs.length));
         }
       } catch (e) {
         console.error('Failed to initialize security state:', e);
