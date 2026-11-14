@@ -1,0 +1,4859 @@
+{
+  "users": {
+    "usr_demo_01": {
+      "id": "usr_demo_01",
+      "email": "demo@payfence.io",
+      "name": "PayFence Autonomous Agent Operator",
+      "role": "operator",
+      "passwordHash": "$2a$10$8/fGIqvyurYvTVcFMnSy1.fViXDNPag/EaL08Ao0MZFqwYWBoPtVC",
+      "balanceUSD": 500,
+      "balanceUnits": 5000000,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    }
+  },
+  "policies": {
+    "default": {
+      "policyId": "default",
+      "name": "Standard Autonomous AI Guard Policy",
+      "version": "1.0.0",
+      "description": "Deterministic policy guard enforcing zero-trust autonomous AI payment safety",
+      "mockBalanceUSD": 500,
+      "mockBalanceUnits": 5000000,
+      "perTxCapUSD": 25,
+      "perTxCapUnits": 250000,
+      "dailyBudgetUSD": 200,
+      "dailyBudgetUnits": 2000000,
+      "minTxAmountUSD": 0.01,
+      "minTxAmountUnits": 100,
+      "whitelistedRecipients": [
+        "0x71C8451C3343344Fc4534664634234567890abcd",
+        "0x250e76987d838a75310c3ab5fae533eb1f842ca8",
+        "rec_vendor_official",
+        "0x9999888877776666555544443333222211110000"
+      ],
+      "allowedOrigins": [
+        "https://app.payfence.io",
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://trusted-partner.com"
+      ],
+      "requireOriginHeader": true,
+      "preventReplay": true,
+      "maxTimestampSkewMs": 300000,
+      "updatedAt": "2026-11-14T06:53:47.707Z"
+    }
+  },
+  "auditLogs": [
+    {
+      "id": "log_1794640686224_33526d51",
+      "timestamp": "2026-11-14T07:18:06.224Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.36
+      }
+    },
+    {
+      "id": "log_1794640686217_011f728e",
+      "timestamp": "2026-11-14T07:18:06.217Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.94
+      }
+    },
+    {
+      "id": "log_1794640671945_3a868c6a",
+      "timestamp": "2026-11-14T07:17:51.945Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.12
+      }
+    },
+    {
+      "id": "log_1794640671937_e7912d11",
+      "timestamp": "2026-11-14T07:17:51.937Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.78
+      }
+    },
+    {
+      "id": "log_1794640612325_801a5e3f",
+      "timestamp": "2026-11-14T07:16:52.325Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.91
+      }
+    },
+    {
+      "id": "log_1794640612316_8a733911",
+      "timestamp": "2026-11-14T07:16:52.316Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.02
+      }
+    },
+    {
+      "id": "log_1794639227711_ee116f99",
+      "timestamp": "2026-11-14T06:53:47.711Z",
+      "action": "POLICY_UPDATE",
+      "allowed": true,
+      "category": "Configuration",
+      "violationCode": null,
+      "reason": "Security policy updated by administrator",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "updates": {
+          "mockBalanceUSD": 500,
+          "dailyBudgetUSD": 200,
+          "perTxCapUSD": 25,
+          "whitelistedRecipients": [
+            "0x71C8451C3343344Fc4534664634234567890abcd",
+            "0x250e76987d838a75310c3ab5fae533eb1f842ca8",
+            "rec_vendor_official",
+            "0x9999888877776666555544443333222211110000"
+          ],
+          "allowedOrigins": [
+            "https://app.payfence.io",
+            "http://localhost:3000",
+            "http://localhost:5173",
+            "https://trusted-partner.com"
+          ]
+        }
+      }
+    },
+    {
+      "id": "log_1794639223398_510792c2",
+      "timestamp": "2026-11-14T06:53:43.398Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.53
+      }
+    },
+    {
+      "id": "log_1794639223392_27dd5fc5",
+      "timestamp": "2026-11-14T06:53:43.392Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.19
+      }
+    },
+    {
+      "id": "log_1794639179347_0ff7278f",
+      "timestamp": "2026-11-14T06:52:59.347Z",
+      "action": "POLICY_UPDATE",
+      "allowed": true,
+      "category": "Configuration",
+      "violationCode": null,
+      "reason": "Security policy updated by administrator",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "updates": {
+          "mockBalanceUSD": 500,
+          "dailyBudgetUSD": 200,
+          "perTxCapUSD": 25,
+          "whitelistedRecipients": [
+            "0x71C8451C3343344Fc4534664634234567890abcd",
+            "0x250e76987d838a75310c3ab5fae533eb1f842ca8",
+            "rec_vendor_official",
+            "0x9999888877776666555544443333222211110000"
+          ],
+          "allowedOrigins": [
+            "https://app.payfence.io",
+            "http://localhost:3000",
+            "http://localhost:5173",
+            "https://trusted-partner.com"
+          ]
+        }
+      }
+    },
+    {
+      "id": "log_1794639175039_59dbd787",
+      "timestamp": "2026-11-14T06:52:55.039Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.48
+      }
+    },
+    {
+      "id": "log_1794639175033_ff9e8763",
+      "timestamp": "2026-11-14T06:52:55.033Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.37
+      }
+    },
+    {
+      "id": "log_1794639086428_98324b36",
+      "timestamp": "2026-11-14T06:51:26.428Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.49
+      }
+    },
+    {
+      "id": "log_1794639086419_54f7fb24",
+      "timestamp": "2026-11-14T06:51:26.419Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.42
+      }
+    },
+    {
+      "id": "log_1794639078353_acbff050",
+      "timestamp": "2026-11-14T06:51:18.353Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.51
+      }
+    },
+    {
+      "id": "log_1794639066366_d5180cf5",
+      "timestamp": "2026-11-14T06:51:06.366Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.93
+      }
+    },
+    {
+      "id": "log_1794638921462_836ac7fb",
+      "timestamp": "2026-11-14T06:48:41.462Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 6.01
+      }
+    },
+    {
+      "id": "log_1794638891934_f6c187cc",
+      "timestamp": "2026-11-14T06:48:11.935Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.34
+      }
+    },
+    {
+      "id": "log_1794638843252_23d14097",
+      "timestamp": "2026-11-14T06:47:23.252Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.42
+      }
+    },
+    {
+      "id": "log_1794638672965_b800a88e",
+      "timestamp": "2026-11-14T06:44:32.965Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.69
+      }
+    },
+    {
+      "id": "log_1794638656693_bc5b24a8",
+      "timestamp": "2026-11-14T06:44:16.693Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.27
+      }
+    },
+    {
+      "id": "log_1794638656688_d2486952",
+      "timestamp": "2026-11-14T06:44:16.688Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.27
+      }
+    },
+    {
+      "id": "log_1794638500130_d1c97e63",
+      "timestamp": "2026-11-14T06:41:40.130Z",
+      "action": "POLICY_UPDATE",
+      "allowed": true,
+      "category": "Configuration",
+      "violationCode": null,
+      "reason": "Security policy updated by administrator",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "updates": {
+          "mockBalanceUSD": 500,
+          "dailyBudgetUSD": 200,
+          "perTxCapUSD": 25,
+          "whitelistedRecipients": [
+            "0x71C8451C3343344Fc4534664634234567890abcd",
+            "0x250e76987d838a75310c3ab5fae533eb1f842ca8",
+            "rec_vendor_official",
+            "0x9999888877776666555544443333222211110000"
+          ],
+          "allowedOrigins": [
+            "https://app.payfence.io",
+            "http://localhost:3000",
+            "http://localhost:5173",
+            "https://trusted-partner.com"
+          ]
+        }
+      }
+    },
+    {
+      "id": "log_1794638495817_bb22b27c",
+      "timestamp": "2026-11-14T06:41:35.817Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.75
+      }
+    },
+    {
+      "id": "log_1794638495811_c80784c8",
+      "timestamp": "2026-11-14T06:41:35.811Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.35
+      }
+    },
+    {
+      "id": "log_1794638199785_c2c3a865",
+      "timestamp": "2026-11-14T06:36:39.785Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.27
+      }
+    },
+    {
+      "id": "log_1794638199778_b375b24d",
+      "timestamp": "2026-11-14T06:36:39.779Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.34
+      }
+    },
+    {
+      "id": "log_1794638114284_5826d01e",
+      "timestamp": "2026-11-14T06:35:14.284Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.53
+      }
+    },
+    {
+      "id": "log_1794638114279_f9d18865",
+      "timestamp": "2026-11-14T06:35:14.279Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.49
+      }
+    },
+    {
+      "id": "log_1794638081751_0a61513e",
+      "timestamp": "2026-11-14T06:34:41.751Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.49
+      }
+    },
+    {
+      "id": "log_1794638081744_e4ab618b",
+      "timestamp": "2026-11-14T06:34:41.744Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.3
+      }
+    },
+    {
+      "id": "log_1794638079143_7f8a7f12",
+      "timestamp": "2026-11-14T06:34:39.143Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.6
+      }
+    },
+    {
+      "id": "log_1794638079137_1bbb46fd",
+      "timestamp": "2026-11-14T06:34:39.137Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.61
+      }
+    },
+    {
+      "id": "log_1794638078100_017d9a27",
+      "timestamp": "2026-11-14T06:34:38.100Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.64
+      }
+    },
+    {
+      "id": "log_1794638078094_54dc51a0",
+      "timestamp": "2026-11-14T06:34:38.094Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.47
+      }
+    },
+    {
+      "id": "log_1794637940175_c0082519",
+      "timestamp": "2026-11-14T06:32:20.175Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.19
+      }
+    },
+    {
+      "id": "log_1794637940169_40357bcb",
+      "timestamp": "2026-11-14T06:32:20.169Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.34
+      }
+    },
+    {
+      "id": "log_1794637895250_2279b1f2",
+      "timestamp": "2026-11-14T06:31:35.250Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.23
+      }
+    },
+    {
+      "id": "log_1794637895245_d5fcd272",
+      "timestamp": "2026-11-14T06:31:35.245Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.19
+      }
+    },
+    {
+      "id": "log_1794637846620_8bdd3253",
+      "timestamp": "2026-11-14T06:30:46.620Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.63
+      }
+    },
+    {
+      "id": "log_1794637846612_181509d0",
+      "timestamp": "2026-11-14T06:30:46.612Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.46
+      }
+    },
+    {
+      "id": "log_1794637835617_5fb047d9",
+      "timestamp": "2026-11-14T06:30:35.617Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.45
+      }
+    },
+    {
+      "id": "log_1794637835612_1abeaca2",
+      "timestamp": "2026-11-14T06:30:35.612Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.62
+      }
+    },
+    {
+      "id": "log_1794637829663_f3a92d6f",
+      "timestamp": "2026-11-14T06:30:29.664Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.67
+      }
+    },
+    {
+      "id": "log_1794637829653_1bf42866",
+      "timestamp": "2026-11-14T06:30:29.654Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.6
+      }
+    },
+    {
+      "id": "log_1794637699683_73b50218",
+      "timestamp": "2026-11-14T06:28:19.683Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.69
+      }
+    },
+    {
+      "id": "log_1794637699668_d8841475",
+      "timestamp": "2026-11-14T06:28:19.669Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.7
+      }
+    },
+    {
+      "id": "log_1794634701658_a6f57a63",
+      "timestamp": "2026-11-14T05:38:21.658Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.74
+      }
+    },
+    {
+      "id": "log_1794634701652_def3f8de",
+      "timestamp": "2026-11-14T05:38:21.652Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.52
+      }
+    },
+    {
+      "id": "log_1794634661919_bf710b8a",
+      "timestamp": "2026-11-14T05:37:41.919Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.57
+      }
+    },
+    {
+      "id": "log_1794634661912_28e2a7d9",
+      "timestamp": "2026-11-14T05:37:41.912Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.44
+      }
+    },
+    {
+      "id": "log_1794634620769_768d37a4",
+      "timestamp": "2026-11-14T05:37:00.769Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.66
+      }
+    },
+    {
+      "id": "log_1794634620763_bd63b4f0",
+      "timestamp": "2026-11-14T05:37:00.763Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.27
+      }
+    },
+    {
+      "id": "log_1794634613721_50f6986d",
+      "timestamp": "2026-11-14T05:36:53.721Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.39
+      }
+    },
+    {
+      "id": "log_1794634613715_bce6b960",
+      "timestamp": "2026-11-14T05:36:53.715Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.42
+      }
+    },
+    {
+      "id": "log_1794634357175_d5f1955d",
+      "timestamp": "2026-11-14T05:32:37.175Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.58
+      }
+    },
+    {
+      "id": "log_1794634357169_f1c3c657",
+      "timestamp": "2026-11-14T05:32:37.169Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.55
+      }
+    },
+    {
+      "id": "log_1794634341697_ef3f2ee4",
+      "timestamp": "2026-11-14T05:32:21.697Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.59
+      }
+    },
+    {
+      "id": "log_1794634341689_90c37c05",
+      "timestamp": "2026-11-14T05:32:21.690Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.75
+      }
+    },
+    {
+      "id": "log_1794634063932_d5d034db",
+      "timestamp": "2026-11-14T05:27:43.932Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.19
+      }
+    },
+    {
+      "id": "log_1794634063379_03e7e5ca",
+      "timestamp": "2026-11-14T05:27:43.379Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.9
+      }
+    },
+    {
+      "id": "log_1794634063372_3b8ba0d9",
+      "timestamp": "2026-11-14T05:27:43.372Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.36
+      }
+    },
+    {
+      "id": "log_1794633984055_4e206a05",
+      "timestamp": "2026-11-14T05:26:24.055Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.52
+      }
+    },
+    {
+      "id": "log_1794633984047_55e4c51d",
+      "timestamp": "2026-11-14T05:26:24.048Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.56
+      }
+    },
+    {
+      "id": "log_1794625918609_669b2b03",
+      "timestamp": "2026-11-14T03:11:58.610Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.51
+      }
+    },
+    {
+      "id": "log_1794625917972_ef07de9c",
+      "timestamp": "2026-11-14T03:11:57.972Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.13
+      }
+    },
+    {
+      "id": "log_1794625917962_247bacac",
+      "timestamp": "2026-11-14T03:11:57.962Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.54
+      }
+    },
+    {
+      "id": "log_1794625798379_dff827f7",
+      "timestamp": "2026-11-14T03:09:58.379Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.63
+      }
+    },
+    {
+      "id": "log_1794625798369_2c9a17ca",
+      "timestamp": "2026-11-14T03:09:58.370Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.44
+      }
+    },
+    {
+      "id": "log_1794625792063_9a89dae9",
+      "timestamp": "2026-11-14T03:09:52.063Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.61
+      }
+    },
+    {
+      "id": "log_1794625792054_ca3abfd9",
+      "timestamp": "2026-11-14T03:09:52.054Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.62
+      }
+    },
+    {
+      "id": "log_1794625773672_d007f43a",
+      "timestamp": "2026-11-14T03:09:33.673Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.61
+      }
+    },
+    {
+      "id": "log_1794625773665_c6cb1bc8",
+      "timestamp": "2026-11-14T03:09:33.665Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.75
+      }
+    },
+    {
+      "id": "log_1794625660955_82d07191",
+      "timestamp": "2026-11-14T03:07:40.955Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.4
+      }
+    },
+    {
+      "id": "log_1794625654217_c852cd7e",
+      "timestamp": "2026-11-14T03:07:34.217Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.62
+      }
+    },
+    {
+      "id": "log_1794625654210_971d50bd",
+      "timestamp": "2026-11-14T03:07:34.210Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.32
+      }
+    },
+    {
+      "id": "log_1794625593821_4a19ace2",
+      "timestamp": "2026-11-14T03:06:33.821Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 2.04
+      }
+    },
+    {
+      "id": "log_1794625593812_033bbcaa",
+      "timestamp": "2026-11-14T03:06:33.812Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 1.67
+      }
+    },
+    {
+      "id": "log_1794624052889_eb66b5e6",
+      "timestamp": "2026-11-14T02:40:52.889Z",
+      "action": "AUDIT_RUN",
+      "allowed": true,
+      "category": "System Audit",
+      "violationCode": null,
+      "reason": "Audit executed: 28/28 attacks blocked (100% detection rate), Score: 100/100",
+      "recipient": null,
+      "amountUSD": null,
+      "origin": null,
+      "userId": null,
+      "details": {
+        "summary": {
+          "totalCases": 29,
+          "attackCasesCount": 28,
+          "controlCasesCount": 1,
+          "attacksBlocked": 28,
+          "attacksBypassed": 0,
+          "controlAllowed": 1,
+          "falsePositives": 0,
+          "detectionRate": 100,
+          "controlPassRate": 100,
+          "securityScore": 100,
+          "allPassed": true,
+          "verdict": "ALL_ATTACKS_MITIGATED"
+        },
+        "categoryBreakdown": {
+          "BOLA/IDOR": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Business Logic & Limits": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Input Validation": {
+            "total": 6,
+            "blocked": 6,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Origin Spoofing": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          },
+          "Protocol Integrity": {
+            "total": 5,
+            "blocked": 5,
+            "bypassed": 0,
+            "detectionRate": 100
+          }
+        },
+        "totalDurationMs": 0.31
+      }
+    }
+  ],
+  "dailySpending": {
+    "usr_demo_01": {}
+  }
+}
