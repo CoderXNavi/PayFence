@@ -11,3 +11,4 @@ if BACKEND_DIR not in sys.path:
     sys.path.insert(0, BACKEND_DIR)
 
 from backend.app import app
+

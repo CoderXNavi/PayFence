@@ -120,3 +120,12 @@ Thumbs.db
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+.vercel
+
+# =============================================================================
+# Report Package & Submission Artifacts (Local Only)
+# =============================================================================
+report_package/
+
+
